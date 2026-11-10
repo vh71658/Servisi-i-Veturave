@@ -1,0 +1,25 @@
+<div class="page-header"><h1>Shto veture</h1><p>Plotesoni te dhenat e vetures</p></div>
+<div class="card form-card">
+  <form [formGroup]="form" (ngSubmit)="ruaj()" class="flex flex-column gap-3">
+    @if (errorMessage) { <p-message severity="error" [text]="errorMessage"></p-message> }
+    <div class="flex flex-column gap-2">
+      <label for="marka">Marka</label>
+      <input pInputText id="marka" formControlName="marka" placeholder="p.sh. Volkswagen" />
+      @if (invalid('marka')) { <small class="p-error">Shkruani marken</small> }
+    </div>
+    <div class="flex flex-column gap-2">
+      <label for="modeli">Modeli</label>
+      <input pInputText id="modeli" formControlName="modeli" placeholder="p.sh. Golf 7" />
+      @if (invalid('modeli')) { <small class="p-error">Shkruani modelin</small> }
+    </div>
+    <div class="flex flex-column gap-2">
+      <label for="targa">Targa</label>
+      <input pInputText id="targa" formControlName="targa" placeholder="p.sh. 01-123-AB" />
+      @if (invalid('targa')) { <small class="p-error">Shkruani targen</small> }
+    </div>
+    <div class="flex gap-2 justify-content-end mt-2">
+      <p-button label="Anulo" severity="secondary" [outlined]="true" routerLink="/veturat"></p-button>
+      <p-button type="submit" label="Ruaj" icon="pi pi-check" [loading]="saving"></p-button>
+    </div>
+  </form>
+</div>

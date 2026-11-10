@@ -1,0 +1,9 @@
+<div class="page-header"><h1>Detajet e vetures</h1><p>ID: {{ id }}</p></div>
+@if (vetura) {
+  <p-card [header]="vetura.marka + ' ' + vetura.modeli" styleClass="detail-card">
+    <p class="m-0"><i class="pi pi-car mr-2"></i>Targa: {{ vetura.targa }}</p>
+  </p-card>
+} @else if (notFound) {
+  <p>Vetura nuk u gjet.</p>
+}
+<p-button class="block mt-3" label="Kthehu te lista" icon="pi pi-arrow-left" [text]="true" routerLink="/veturat"></p-button>
